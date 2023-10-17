@@ -46,7 +46,16 @@
 		  background: url('.png');
 		  cursor: pointer;
 		}
+		body{
+			font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-style:normal;
+			font-weight: 500;
+		}
+		
+		
+		
  </style>
+ <script></script>
 
 	<!-- Google font -->
 	<link href="http://fonts.googleapis.com/css?family=Playfair+Display:900" rel="stylesheet" type="text/css" />
@@ -59,6 +68,7 @@
 	<link type="text/css" rel="stylesheet" href="../static/css/reg_style.css" />
 	<link rel="stylesheet" href="../static/css/payment.css">
 
+	<link href="HousePricing\static\css\style.css" rel="stylesheet" type="text">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -69,49 +79,45 @@
 </head>
 
 <body>
-	<div id="booking" class="section">
+	<div id="booking" class="section" >
 		<div class="banner">
 			<div class="navbar">
-			<a href="index.html" style="float: right"> <img src="../static/images/logo1.png" class="logo" style="max-width: 50%">
-				<ul>
-					<li><a href="index.html">HOME</a></li>
-					<li><a href="#">CONTACT US</a></li>
-					<li><a href="#">ABOUT US</a></li>
-					
+			<a href="index.html" style="float: right"> <img src="../static/images/logo1.png" class="logo" style="max-width: 50%"></a>
+
 			</div>		
 		</div>
-		<div class="section-center">
+		<div class="section-center" style="font-weight: 600;">
 			<div class="container">
 				<div class="row">
-					<div class="booking-form">
-						<div class="booking-bg">
-							<div class="form-header">
-								<h2>Size Evaluation</h2>
-								<h3 style="color: white;">Predicted Rent :{{prediction_text}}</h3>
+					<div class="booking-form" style="border: 6px solid #9966cc">
+						<div class="booking-bg" style="height: 900px">
+							<div class="form-header"><br><br><br><br><br><br>s
+								<h2>Prize Evaluation</h2><br><br><br><br><br><br>
+								<h3 style="color: white;">Predicted PRICE :{{prediction_text}}</h3>
 							</div>
 						</div>
 						<form action="{{ url_for('predict')}}" method="post">
 							<div class="row">
 								<div class="col-md-6">
 								<div class="slidecontainer" style="margin-top: 25px;">
-								<span class="form-label" style="font-size: 16px; color: black;">Number of Bedrooms</span>
-									  <input type="range" min="1" max="10" value="1" class="slider" name="room" id="myRange" style="margin-top: 10px;">
-									  <p style="margin-top: 10px; color: red;">Value: <span id="demo"></span></p>
+								<span class="form-label" style="font-size: 16px; color: black;"><b>Number of Bedrooms</b></span>
+									  <input type="range"  min="1" max="10" value="1" class="slider" name="room" id="myRange" style="margin-top: 10px;">
+									  <p style="margin-top: 10px; color:#b666d2;text-decoration:solid;font-weight: 400;">Value: <span id="demo"></span></p>
 								</div>
 								</div>
 								<div class="col-md-6">
 									<div class="slidecontainer" style="margin-top: 25px;">
-									<span class="form-label" style="font-size: 16px; color: black;">Number of Bathrooms</span>
-									  <input type="range" name="bath" min="1" max="5" value="1" class="slider" id="myRange2" style="margin-top: 10px;">
-									  <p style="margin-top: 10px; color: red; margin-bottom: 10px;" color: red>Value: <span id="demo2"></span></p>
+									<span class="form-label" style="font-size: 16px; color: black;"><b>Number of Bathrooms</b></span>
+									  <input type="range" name="bath" min="1" max="10" value="1" class="slider" id="myRange2" style="margin-top: 10px;">
+									  <p style="margin-top: 10px; color:#b666d2; margin-bottom: 10px;" color: red>Value: <span id="demo2"></span></p>
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-12" style="margin-top: 20px;">
 									<div class="form-group">
-										<span class="form-label" style="font-size: 16px; color: black; margin-top: 20px">Land Area</span>
-										<input type="number" class="form-control" name="size" id="inputAddress" placeholder="000.0" >
+										<span class="form-label" style="font-size: 16px; color: black; margin-top: 20px"><b>Land Area</b></span>
+										<input type="number" class="form-control" name="size" id="landArea" placeholder="000.0" >
 										<span class="select-arrow"></span>
 									</div>
 								</div>
@@ -119,12 +125,41 @@
 							<div class="row">
 								<div class="col-md-12" style="margin-top: 20px;">
 									<div class="form-group">
-										<span class="form-label" style="font-size: 16px; color: black; margin-top: 20px">Floor Area</span>
-										<input type="number" class="form-control" name="size" id="inputAddress" placeholder="000.0" >
+										<span class="form-label" style="font-size: 16px; color: black; margin-top: 20px"><b>Floor Area</b></span>
+										<input type="number" class="form-control" name="size" id="floorArea" placeholder="000.0" >
 										<span class="select-arrow"></span>
 									</div>
 								</div>
 							</div>
+							<div class="row">
+								<div class="col-md-12" style="margin-top: 20px;">
+									<div class="form-group">
+										<span class="form-label" style="font-size: 16px; color: black; margin-top: 20px"><b>Nearest_SCH_Rank</b></span>
+										<input type="number" class="form-control" name="size" id="NSR" placeholder="000.0" >
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+							</div>
+														<div class="row">
+								<div class="col-md-12" style="margin-top: 20px;">
+									<div class="form-group">
+										<span class="form-label" style="font-size: 16px; color: black; margin-top: 20px"><b>Price per squred foot</b></span>
+										<input type="number" class="form-control" name="size" id="PPSQ" placeholder="000.0" >
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+							</div>
+														<div class="row">
+								<div class="col-md-12" style="margin-top: 20px;">
+									<div class="form-group">
+										<span class="form-label" style="font-size: 16px; color: black; margin-top: 20px;"><b>Build_Year</b></span>
+										<input type="number" class="form-control" name="size" id="Build_Year" placeholder="2019" >
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+							</div>
+							
+							
 							<div class="form-btn" style="margin-top: 30px;">
 								<button type="submit"class="submit-btn" style="margin-top: 40px;">Predict</button>
 							</div>
