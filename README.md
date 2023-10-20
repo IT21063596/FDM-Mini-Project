@@ -1,7 +1,11 @@
-# FDM-Mini-Project Perth House price prediction
+# FDM-Mini-Project Perth House Price Prediction
 
- see that we have created 3 additional branches as deploy,preprocessing and frontend
-	
- frontend contains the fron end code that we initially was expecting to use but was not able
- preprocessing contains the models and the sata preprocessing that we did in order to select the final most optimised model
- deploy consists of the streamlit app that was created 
+This repository contains the code for the FDM mini-project focusing on predicting house prices in Perth. The project is structured into the following branches:
+
+- **frontend**: Contains the front-end code that was initially expected to be used but was not successful.
+- **preprocessing**: Includes the data preprocessing and model selection processes that led to the final optimized model.
+- **deploy**: Consists of the Streamlit app that was created for this project.
+
+Feel free to explore each branch for more details about the specific aspects of the project.
+
+
